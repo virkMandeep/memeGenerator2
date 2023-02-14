@@ -1,10 +1,14 @@
 import React from "react";
 import mamesData from "../memesData.js"
 
+let url
 export default function Meme(){
     function getMemeImage(){
-        console.log("Clicked")
-    }
+    const memesArray = mamesData.data.memes
+    const randomNumber = Math.floor(Math.random()* memesArray.length)
+    url = memesArray[randomNumber].url
+    console.log(url)
+}
     return(
         <main>
             <div className="form">
