@@ -498,7 +498,7 @@ function Header() {
         _react2.default.createElement(
             "h5",
             { className: "nav--right-title" },
-            "React Project-3"
+            "-Mandeep Virk"
         )
     );
 }
@@ -513,6 +513,9 @@ function Header() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 exports.default = Meme;
 
 var _react = __webpack_require__(1);
@@ -527,11 +530,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var url = void 0;
 function Meme() {
+    var _React$useState = _react2.default.useState(""),
+        _React$useState2 = _slicedToArray(_React$useState, 2),
+        memeImage = _React$useState2[0],
+        setMemeImage = _React$useState2[1];
+
     function getMemeImage() {
         var memesArray = _memesData2.default.data.memes;
         var randomNumber = Math.floor(Math.random() * memesArray.length);
         url = memesArray[randomNumber].url;
-        console.log(url);
+        setMemeImage(memesArray[randomNumber].url);
     }
     return _react2.default.createElement(
         "main",
@@ -556,7 +564,8 @@ function Meme() {
                 },
                 "Get a new meme image \uD83D\uDDBC"
             )
-        )
+        ),
+        _react2.default.createElement("img", { className: "meme--Image", src: memeImage })
     );
 }
 
